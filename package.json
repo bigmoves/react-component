@@ -1,0 +1,47 @@
+{
+  "name": "react-component-boilerplate",
+  "version": "0.0.1",
+  "description": "A boilerplate for React components.",
+  "main": "lib/index.js",
+  "authors": [
+    "Chad Miller"
+  ],
+  "scripts": {
+    "build": "scripts/build",
+    "build-examples": "scripts/build-examples",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "4.2.3",
+    "browserify-shim": "3.6.0",
+    "reactify": "~0.14.0",
+    "react": ">=0.11.0",
+    "react-tools": "~0.11.2",
+    "uglify-js": "~2.4.15",
+    "jest-cli": "~0.1.18",
+    "node-sass": "~0.9.5-rc1"
+  },
+  "peerDependencies": {
+    "react": ">=0.11.0"
+  },
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "jest": {
+    "rootDir": "",
+    "scriptPreprocessor": "jest/preprocessor.js",
+    "modulePathIgnorePatterns": [
+      "/dist/",
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/dist/",
+      "/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      ""
+    ]
+  }
+}

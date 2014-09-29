@@ -1,0 +1,9 @@
+#!/bin/sh
+BROWSERIFY="node_modules/.bin/browserify --detect-globals false"
+NODE_SASS="node_modules/.bin/node-sass --output-style expanded"
+BUNDLE_EXAMPLE="$BROWSERIFY -t reactify -x react -x react-component"
+NODE_ENV=development $BROWSERIFY -t reactify -r react -r ./lib:react-component > examples/global-bundle.js
+
+$BUNDLE_EXAMPLE examples/basic/app.js > examples/basic/app-bundle.js
+
+$NODE_SASS ./lib/styles/styles.scss ./examples/basic/styles.css

@@ -1,0 +1,19 @@
+#!/bin/sh
+mkdir -p dist
+
+NODE_ENV=production node_modules/.bin/browserify lib/index.js \
+  -t reactify \
+  -t browserify-shim \
+  --detect-globals false \
+  -s ReactComponent > dist/react-component.js
+
+node_modules/.bin/uglifyjs dist/react-component.js \
+  --compress warnings=false > dist/react-component.min.js
+
+node_modules/.bin/node-sass \
+  --output-style expanded \
+  ./lib/styles/styles.scss ./dist/react-component.css
+
+node_modules/.bin/node-sass \
+  --output-style compressed \
+  ./lib/styles/styles.scss ./dist/react-component.min.css
